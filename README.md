@@ -1,1 +1,1 @@
-Vabandust, et töö inglise keeles on.
+Okei. Tehtud. Palun.

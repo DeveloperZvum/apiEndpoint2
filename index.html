@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #image-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 500px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dog Image Finder</h1>
+    <button id="fetch-btn">Get Image</button>
+
+    <div id="image-container">
+        <img id="dog-display" src="" alt="">
+    </div>
+
+    <script>
+        const btn = document.getElementById('fetch-btn');
+        const img = document.getElementById('dog-display');
+
+        async function getDogData() {
+            try {
+                const response = await fetch('https://dog.ceo/api/breeds/image/random');
+                const data = await response.json();
+                img.src = data.message;
+            } catch (err) {
+                console.log('Error:', err);
+            }
+        }
+
+        btn.addEventListener('click', getDogData);
+    </script>
+</body>
+</html>
